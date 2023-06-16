@@ -1,0 +1,55 @@
+jumbo_categories = [
+    ["lacteos",
+        "leches",
+        "yoghurt",
+        "postres",
+        "mantequillas-y-margarinas",
+        "huevos",
+        "leches-cultivadas-y-bebidas-lacteas",
+
+    ],
+    ["despensa",
+        "arroz-y-legumbres",
+        "pastas-y-salsas",
+        "coctel",
+        "conservas",
+        "aderezos-y-salsas",
+        "reposteria",
+        "harina-y-complementos",
+        "aceites-sal-y-condimentos",
+        "instantaneos-y-sopas",
+        "comidas-etnicas"
+    ],
+    ["frutas-y-verduras",
+        "frutas",
+        "verduras",
+        "frutos-secos-y-semillas"
+    ],
+    ["carniceria",
+        "vacuno",
+        "cerdo",
+        "pollo",
+        "pavo",
+
+    ],
+    ["botilleria",
+        "bebidas-gaseosas",
+        "aguas-minerales",
+        "jugos",
+        "bebidas-energeticas",
+        "bebidas-isotonicas"
+    ],
+    ["limpieza",
+        "papeles-hogar",
+        "limpieza-de-ropa",
+        "bano-y-cocina",
+        "pisos-y-muebles",
+        "aerosoles-y-desinfectantes",
+        "accesorios-de-limpieza"
+    ],
+    ["mascotas",
+        "perros",
+        "gatos",
+        "otras-mascotas"
+    ]
+]

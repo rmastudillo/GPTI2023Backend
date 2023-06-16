@@ -23,3 +23,8 @@ async def root():
 @app.get("/products")
 async def all_products():
     return _services.get_products()
+
+
+@app.get("/prueba")
+async def all_categories():
+    return _services.get_products()
