@@ -6,7 +6,7 @@ jumbo_categories = [
         "mantequillas-y-margarinas",
         "huevos",
         "leches-cultivadas-y-bebidas-lacteas",
-
+        "probioticos-y-defensas"
     ],
     ["despensa",
         "arroz-y-legumbres",
@@ -30,7 +30,7 @@ jumbo_categories = [
         "cerdo",
         "pollo",
         "pavo",
-
+        "cordero"
     ],
     ["botilleria",
         "bebidas-gaseosas",
@@ -51,5 +51,25 @@ jumbo_categories = [
         "perros",
         "gatos",
         "otras-mascotas"
+    ],
+    ["",
+        "bebe",
+        "congelados",
+        "desayuno-y-dulces",
+        "belleza-y-cuidado-personal",
+        "vinos-cervezas-y-licores",
+        "quesos-y-fiambres",
+        "panaderia-y-pasteleria",
+        "pescaderia",
+        "comidas-preparadas",
+        "sabores-del-mundo",
+        "mundo-bio-natura",
+        "hogar",
+        "electro-y-tecno",
+        "deportes",
+        "jugueteria",
+        "escolares-y-libreria",
+        "farmacia",
+        "automovil-ferreteria-y-jardin"
     ]
 ]
