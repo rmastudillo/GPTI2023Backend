@@ -5,7 +5,7 @@ import scraper as _scraper
 import json as _json
 from jumbo_categories import jumbo_categories
 
-def create_products_dict(categories_list, website_url) -> Dict:
+def create_products_dict(categories_list, website_url, supermarket) -> Dict:
     products = {}
 
     print("File parsing started...")
@@ -22,12 +22,13 @@ def create_products_dict(categories_list, website_url) -> Dict:
 
             subcategory_dict = {}
             for product, price in zip(products_list, price_list):
-                subcategory_dict[product] = price
+                product_dict = {
+                    "precio": price,
+                    "supermercado": supermarket
+                }
+                subcategory_dict[product] = product_dict
 
-            # if len(price_list) > 0:
-            #     subcategory_dict["PROMEDIO"] = round(sum([float(price[1:]) for price in price_list])/len(price_list), 3)
-            # else:
-            #     subcategory_dict["PROMEDIO"] = 0.0
+        
 
             category_dict[subcategory] = subcategory_dict
 
@@ -41,7 +42,7 @@ def create_products_dict(categories_list, website_url) -> Dict:
 
 
 if __name__ == '__main__':
-    products_jumbo = create_products_dict(jumbo_categories, "https://www.jumbo.cl/")
+    products_jumbo = create_products_dict(jumbo_categories, "https://www.jumbo.cl/", "jumbo")
     # products_santaisabel = create_products_dict(jumbo_categories, "https://www.santaisabel.cl/")
     with open("products_jumbo.json", mode="w", encoding='utf8') as products_file:
         _json.dump(products_jumbo, products_file, ensure_ascii=False)
