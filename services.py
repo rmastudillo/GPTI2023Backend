@@ -47,5 +47,5 @@ def buscar_productos(palabra_clave: str, supermercado: str = None, categoriaQuer
         if categoriaQuery and categoriaQuery.lower() != categoria.lower():
             continue
         buscador(subcategoria)
-
+    productos_encontrados.sort(key=lambda x: float(x["precio"]))
     return productos_encontrados
