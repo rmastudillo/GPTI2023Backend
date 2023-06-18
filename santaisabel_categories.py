@@ -1,4 +1,4 @@
-jumbo_categories = [
+santaisabel_categories = [
     ["lacteos",
         "leches",
         "yoghurt",
@@ -32,7 +32,7 @@ jumbo_categories = [
         "pavo",
         "cordero"
     ],
-    ["bebidas-aguas-y-jugos",
+    ["botilleria",
         "bebidas-gaseosas",
         "aguas-minerales",
         "jugos",
@@ -63,13 +63,7 @@ jumbo_categories = [
         "pescaderia",
         "comidas-preparadas",
         "sabores-del-mundo",
-        "mundo-bio-natura",
         "hogar",
-        "electro-y-tecno",
-        "deportes",
         "jugueteria",
-        "escolares-y-libreria",
-        "farmacia",
-        "automovil-ferreteria-y-jardin"
     ]
 ]
