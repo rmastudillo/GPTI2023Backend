@@ -11,26 +11,23 @@ def get_products() -> Dict:
     return data
 
 
-def buscar_productos(palabra_clave: str, supermercado: str = None, categoriaQuery: str = None, subcategoriaQuery: str = None) -> List[Dict[str, str]]:
-    with open("products_jumbo.json", encoding='utf-8') as products_file:
+def buscar_productos(palabra_clave: str = None, supermercado: str = None, categoriaQuery: str = None, subcategoriaQuery: str = None) -> List[Dict[str, str]]:
+    with open("productos_totales.json", encoding='utf-8') as products_file:
         data = _json.load(products_file)
 
     productos_encontrados = []
 
-    def buscador(subcategorias: Dict) -> None:
+    for categoria, subcategorias in data.items():
+        if categoriaQuery and categoriaQuery.lower() != categoria.lower():
+            continue
+
         for subcategoria, productos in subcategorias.items():
             for producto, datos in productos.items():
-                if palabra_clave.lower() in producto.lower():
-                    if (
-                        supermercado and
-                        supermercado.lower() != datos["supermercado"].lower()
-                    ):
+                if palabra_clave is None or palabra_clave.lower() in producto.lower():
+                    if supermercado and supermercado.lower() != datos["supermercado"].lower():
                         continue
 
-                    if (
-                        subcategoriaQuery and
-                        subcategoriaQuery.lower() != subcategoria.lower()
-                    ):
+                    if subcategoriaQuery and subcategoriaQuery.lower() != subcategoria.lower():
                         continue
 
                     producto_encontrado = {
@@ -43,9 +40,5 @@ def buscar_productos(palabra_clave: str, supermercado: str = None, categoriaQuer
                     }
                     productos_encontrados.append(producto_encontrado)
 
-    for categoria, subcategoria in data.items():
-        if categoriaQuery and categoriaQuery.lower() != categoria.lower():
-            continue
-        buscador(subcategoria)
     productos_encontrados.sort(key=lambda x: float(x["precio"]))
     return productos_encontrados
