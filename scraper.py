@@ -1,28 +1,34 @@
 from typing import List
+import time
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from bs4 import BeautifulSoup
+import requests
 import requests as _requests
 import bs4 as _bs4
 
 
+def get_page_source(url: str) -> str:
+    chrome_options = Options()
+    # Ejecuta el navegador en modo headless (sin interfaz gráfica)
+    chrome_options.add_argument("--headless")
+    driver = webdriver.Chrome(options=chrome_options)
+    driver.get(url)
+    # Espera un tiempo suficiente para que se carguen los datos dinámicos (puedes ajustar el tiempo según sea necesario)
+    time.sleep(2)
+    page_source = driver.page_source
+    driver.quit()
+    return page_source
 
-def _get_page(url: str) -> _bs4.BeautifulSoup:
-    page = _requests.get(url)
-    soup = _bs4.BeautifulSoup(page.content, "html.parser")
+
+def _get_page(url: str) -> BeautifulSoup:
+    page = requests.get(url)
+    return page.content
+
+
+def get_soup(url: str, category: str, subcategory: str, selenium=None) -> List[str]:
+    base_url = url
+    url = base_url + category + "/" + subcategory
+    page_source = get_page_source(url) if selenium else _get_page(url)
+    soup = BeautifulSoup(page_source, "html.parser")
     return soup
-
-def get_products(url: str, category: str, subcategory: str) -> List[str]:
-    base_url = url
-    url = base_url + category + "/" + subcategory
-    page = _get_page(url)
-    raw_products = page.find_all(class_="shelf-product-title-text")
-    products = [product.text for product in raw_products]
-    return products
-
-def get_prices(url: str, category: str, subcategory: str) -> List[str]:
-    base_url = url
-    url = base_url + category + "/" + subcategory
-    page = _get_page(url)
-    raw_prices = page.find_all(class_="product-sigle-price-wrapper")
-    prices = [price.text for price in raw_prices]
-    return prices
-
-
