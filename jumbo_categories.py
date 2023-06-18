@@ -32,7 +32,7 @@ jumbo_categories = [
         "pavo",
         "cordero"
     ],
-    ["botilleria",
+    ["bebidas-aguas-y-jugos",
         "bebidas-gaseosas",
         "aguas-minerales",
         "jugos",
@@ -53,7 +53,7 @@ jumbo_categories = [
         "otras-mascotas"
     ],
     ["",
-        "bebe",
+        "mi-bebe",
         "congelados",
         "desayuno-y-dulces",
         "belleza-y-cuidado-personal",

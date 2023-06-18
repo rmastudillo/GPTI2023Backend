@@ -15,7 +15,7 @@ def get_page_source(url: str) -> str:
     driver = webdriver.Chrome(options=chrome_options)
     driver.get(url)
     # Espera un tiempo suficiente para que se carguen los datos dinámicos (puedes ajustar el tiempo según sea necesario)
-    time.sleep(1)
+    time.sleep(3)
     page_source = driver.page_source
     driver.quit()
     return page_source
@@ -28,10 +28,11 @@ def _get_page(url: str) -> BeautifulSoup:
 
 def get_soup(url: str, category: str, subcategory: str, selenium=None) -> List[str]:
     if category == "":
-        url = url + "/" + subcategory
+        url_search = url + "/" + subcategory
     else:
-        url = url + "/" + category + "/" + subcategory
-    page_source = get_page_source(url) if selenium else _get_page(url)
+        url_search = url + "/" + category + "/" + subcategory
+
+    page_source = get_page_source(url_search) if selenium else _get_page(url_search)
     soup = BeautifulSoup(page_source, "html.parser")
     return soup
 

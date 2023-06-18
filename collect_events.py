@@ -48,10 +48,10 @@ def create_products_dict(categories_list, website_url, supermarket, selenium=Non
 
 
 if __name__ == '__main__':
-    # products_jumbo = create_products_dict(jumbo_categories, "https://www.jumbo.cl", "jumbo")
-    products_santaisabel = create_products_dict(santaisabel_categories, "https://www.santaisabel.cl", "santa isabel", "selenium")
-    # with open("products_jumbo.json", mode="w", encoding='utf8') as products_file:
-    #    _json.dump(products_jumbo, products_file, ensure_ascii=False)
+    products_jumbo = create_products_dict(jumbo_categories, "https://www.jumbo.cl", "jumbo", "selenium")
+    products_santaisabel = create_products_dict(jumbo_categories, "https://www.santaisabel.cl", "santa isabel", "selenium")
+    with open("products_jumbo.json", mode="w", encoding='utf8') as products_file:
+       _json.dump(products_jumbo, products_file, ensure_ascii=False)
 
     with open("products_santaisabel.json", mode="w", encoding='utf8') as products_file:
         _json.dump(products_santaisabel, products_file, ensure_ascii=False)
