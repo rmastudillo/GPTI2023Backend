@@ -35,8 +35,11 @@ def buscar_productos(palabra_clave: str, supermercado: str = None, categoriaQuer
 
                     producto_encontrado = {
                         "nombre": producto,
+                        "categoria": categoria,
+                        "subcategoria": subcategoria,
                         "precio": datos["precio"],
-                        "supermercado": datos["supermercado"]
+                        "supermercado": datos["supermercado"],
+                        "url_imagen": datos["url_imagen"]
                     }
                     productos_encontrados.append(producto_encontrado)
 
