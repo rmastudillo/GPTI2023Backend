@@ -9,6 +9,7 @@ def get_products() -> Dict:
         data = _json.load(products_file)
 
     return data
+    
 
 
 def buscar_productos(palabra_clave: str = None, supermercado: str = None, categoriaQuery: str = None, subcategoriaQuery: str = None) -> List[Dict[str, str]]:
