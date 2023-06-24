@@ -5,8 +5,16 @@ import json
 # with open('products_unimarc.json', 'r') as file1:
 #     json1 = json.load(file1)
 
+<<<<<<< HEAD
 # with open('products_unimarc.json', 'r') as file1:
 #     json1 = json.load(file1)
+=======
+with open('products_santaisabel.json', 'r') as file2:
+    json2 = json.load(file2)
+    
+with open('productos_lider.json', 'r') as file3:
+    json3 = json.load(file3)
+>>>>>>> 73178f63d88e1f8ffb895f066dded4599f781eab
 
 with open('productos_totales.json', 'r') as file1:
     json1 = json.load(file1)
@@ -53,7 +61,7 @@ with open('productos_lider.json', 'r') as file2:
 
 
 
-def fusionar_productos(json1, json2):
+def fusionar_productos(json1, json2, json3):
     resultado = {}
 
     # Fusionar json1 en resultado
@@ -78,12 +86,24 @@ def fusionar_productos(json1, json2):
                                 nombre += " t"
 
                 resultado.setdefault(categoria, {}).setdefault(subcategoria, {})[nombre] = detalles
+                
+    # Fusionar json2 en resultado, cambiando sutilmente los nombres de los productos duplicados
+    for categoria, subcategorias in json3.items():
+        for subcategoria, productos in subcategorias.items():
+            for nombre, detalles in productos.items():
+                if categoria in resultado and subcategoria in resultado[categoria]:
+                    for nombre_existente in resultado[categoria][subcategoria]:
+                        if nombre == nombre_existente:
+                            # Cambiar sutilmente el nombre del producto
+                            nombre += "_l"
+
+                resultado.setdefault(categoria, {}).setdefault(subcategoria, {})[nombre] = detalles
 
     return resultado
 
 
 # Fusionar los archivos JSON
-resultado = fusionar_productos(json1, json2)
+resultado = fusionar_productos(json1, json2, json3)
 
 # Guardar el resultado en un nuevo archivo JSON
 with open('productos_totales.json', 'w') as output_file:
