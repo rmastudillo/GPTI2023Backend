@@ -2,13 +2,18 @@ import json
 
 
 # Leer los archivos JSON
-with open('products_jumbo.json', 'r') as file1:
+# with open('products_unimarc.json', 'r') as file1:
+#     json1 = json.load(file1)
+
+# with open('products_unimarc.json', 'r') as file1:
+#     json1 = json.load(file1)
+
+with open('productos_totales.json', 'r') as file1:
     json1 = json.load(file1)
 
-with open('products_santaisabel.json', 'r') as file2:
+
+with open('productos_lider.json', 'r') as file2:
     json2 = json.load(file2)
-
-
 
 
 # productos_unicos_jumbo = {}
@@ -70,7 +75,7 @@ def fusionar_productos(json1, json2):
                             elif nombre[-1] == 'l':
                                 nombre += "itro"
                             else:
-                                nombre += "_t"
+                                nombre += " t"
 
                 resultado.setdefault(categoria, {}).setdefault(subcategoria, {})[nombre] = detalles
 

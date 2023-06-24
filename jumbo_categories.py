@@ -72,4 +72,5 @@ jumbo_categories = [
         "farmacia",
         "automovil-ferreteria-y-jardin"
     ]
+    
 ]
