@@ -36,7 +36,7 @@ def procesar_json(json_data):
     return json_data
 
 # Cargar el JSON
-with open('products_jumbo_3.json', 'r') as file:
+with open('productos_lider.json', 'r') as file:
     json_string = file.read()
 
 # Parsear el JSON
@@ -49,7 +49,7 @@ data_procesada = procesar_json(data)
 json_modificado = json.dumps(data_procesada)
 
 # Especificar la ruta y nombre del archivo de salida
-ruta_archivo_salida = 'productos_jumbo_proc.json'
+ruta_archivo_salida = 'productos_lider_proc.json'
 
 # Guardar el JSON modificado en el archivo de salida
 with open(ruta_archivo_salida, 'w') as file:
