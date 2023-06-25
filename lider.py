@@ -155,6 +155,7 @@ def make_request(category, subcategory, page=1, facets=[], sortBy="", hitsPerPag
     response = session.post(url, serialized_params.encode('utf-8'))
     data = json.loads(response.text)
     converted_response = [convert_product(product) for product in data['products']]
+
     return converted_response
 
 def convert_product(product):
@@ -162,6 +163,7 @@ def convert_product(product):
     new_product = {
         product['displayName'] : {
             'precio': product['price']['BasePriceSales'],
+            'marca' : product['brand'],
             'supermercado': 'lider',
             'url_imagen': product['images']['defaultImage']   
         }
