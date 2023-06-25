@@ -28,7 +28,7 @@ jumbo_to_lider = {
     "pollo": "Pollo",
     "pavo": "Pavo",
     "cordero": "Cordero",
-    "botilleria": "Bebidas y Licores",
+    "bebidas-aguas-y-jugos": "Bebidas y Licores",
     "bebidas-gaseosas": "Bebidas",
     "aguas-minerales": "Aguas",
     "jugos": "Jugos",
