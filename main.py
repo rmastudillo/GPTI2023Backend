@@ -31,7 +31,7 @@ async def all_categories():
 
 
 @app.get("/buscar")
-def buscar(search: str = Query(None), supermercado: str = Query(None), categoria: str = Query(None), subcategoria: str = Query(None)):
+def buscar(search: str = Query(None), supermercado: str = Query(None), categoria: str = Query(None), subcategoria: str = Query(None), marca: str = Query(None)):
     productos_encontrados = _services.buscar_productos(
-        search, supermercado, categoria, subcategoria)
+        search, supermercado, categoria, subcategoria, marca)
     return {"productos_encontrados": productos_encontrados}
