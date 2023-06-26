@@ -1,3 +1,4 @@
+import random
 from typing import Dict, List
 import json as _json
 import datetime as _dt
@@ -5,10 +6,24 @@ import datetime as _dt
 
 # ojo que modifique a products_jumbo.json
 def get_products() -> Dict:
-    with open("products_jumbo.json", encoding='utf-8') as products_file:
+    with open("productos_totales.json", encoding='utf-8') as products_file:
         data = _json.load(products_file)
+    productos_encontrados = []
+    for categoria, subcategorias in data.items():
+        for subcategoria, productos in subcategorias.items():
+            for producto, datos in productos.items():
+                producto_encontrado = {
+                    "nombre": producto,
+                    "categoria": categoria,
+                    "subcategoria": subcategoria,
+                    "precio": datos["precio"],
+                    "supermercado": datos["supermercado"],
+                    "url_imagen": datos["url_imagen"]
+                }
+                productos_encontrados.append(producto_encontrado)
 
-    return data
+    objetos_aleatorios = random.sample(productos_encontrados, 50)
+    return objetos_aleatorios
     
 
 
