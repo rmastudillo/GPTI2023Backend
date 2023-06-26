@@ -17,6 +17,7 @@ def get_products() -> Dict:
                     "categoria": categoria,
                     "subcategoria": subcategoria,
                     "precio": datos["precio"],
+                    "marca": datos["marca"],
                     "supermercado": datos["supermercado"],
                     "url_imagen": datos["url_imagen"]
                 }
@@ -24,10 +25,9 @@ def get_products() -> Dict:
 
     objetos_aleatorios = random.sample(productos_encontrados, 50)
     return objetos_aleatorios
-    
 
 
-def buscar_productos(palabra_clave: str = None, supermercado: str = None, categoriaQuery: str = None, subcategoriaQuery: str = None) -> List[Dict[str, str]]:
+def buscar_productos(palabra_clave: str = None, supermercado: str = None, categoriaQuery: str = None, subcategoriaQuery: str = None, marca: str = None) -> List[Dict[str, str]]:
     with open("productos_totales.json", encoding='utf-8') as products_file:
         data = _json.load(products_file)
 
@@ -45,12 +45,14 @@ def buscar_productos(palabra_clave: str = None, supermercado: str = None, catego
 
                     if subcategoriaQuery and subcategoriaQuery.lower() != subcategoria.lower():
                         continue
-
+                    if marca and marca.lower() != datos["marca"].lower():
+                        continue
                     producto_encontrado = {
                         "nombre": producto,
                         "categoria": categoria,
                         "subcategoria": subcategoria,
                         "precio": datos["precio"],
+                        "marca": datos["marca"],
                         "supermercado": datos["supermercado"],
                         "url_imagen": datos["url_imagen"]
                     }
